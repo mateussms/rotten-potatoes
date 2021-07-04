@@ -53,3 +53,10 @@ jobs:
           manifests: |
             k8s/momgodb/deployment.yaml
             k8s/momgodb/service.yaml
+      - name: Deploy Web
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+            k8s/web/deployment.yaml
+            k8s/web/service.yaml
+          images: mateussms/rotten-potatoes:${{ github.run_number }}
